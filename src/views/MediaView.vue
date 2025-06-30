@@ -1,10 +1,23 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
 import axios from 'axios';
 
 const urls = ref([]);
 
 const videosToDisplay = 6;
+
+const isSmallScreen = useMediaQuery('(max-width: 720px)');
+const vidWidths = ref(isSmallScreen.value ? '90%' : '600');
+
+watch(isSmallScreen, async (value) => {
+  if (value) {
+    vidWidths.value = '90%';
+  } else {
+    vidWidths.value = '600';
+  }
+  await loadVideos();
+});
 
 onMounted(async () => {
   await loadVideos();
@@ -31,6 +44,7 @@ const loadVideos = async () => {
 };
 </script>
 <template>
+  {{ vidWidths }}
   <div class="media-page-wrapper">
     <h1>Stream Our Latest Single</h1>
     <div class="single-stream">
@@ -46,7 +60,7 @@ const loadVideos = async () => {
       <iframe
         v-for="url of urls"
         :key="url"
-        width="600"
+        :width="vidWidths"
         height="340"
         frameborder="0"
         title="YouTube video player"
