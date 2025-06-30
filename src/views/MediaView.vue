@@ -44,7 +44,6 @@ const loadVideos = async () => {
 };
 </script>
 <template>
-  {{ vidWidths }}
   <div class="media-page-wrapper">
     <h1>Stream Our Latest Single</h1>
     <div class="single-stream">

@@ -1,6 +1,19 @@
+<script setup>
+import BandcampPlayer from '@/components/BandcampPlayer.vue';
+import NavItems from '@/components/NavItems.vue';
+import { useMediaQuery } from '@vueuse/core';
+import { Slide } from 'vue3-burger-menu';
+
+const is768 = useMediaQuery('(max-width: 768px)');
+</script>
 <template>
   <div class="head">
     <div class="logo-wrapper">
+      <Slide v-if="is768" :closeOnNavigation="true">
+        <div class="hamburger-items">
+          <NavItems />
+        </div>
+      </Slide>
       <img
         alt="while(true) logo"
         src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/logo.png"
@@ -9,13 +22,9 @@
     <div class="links-wrapper">
       <div class="top-wrapper">
         <div class="stream">
-          <iframe
-            style="border: 0; width: 100%; height: 42px"
-            src="https://bandcamp.com/EmbeddedPlayer/track=3338345172/size=small/bgcol=333333/linkcol=ffffff/transparent=true/"
-            seamless
-          ></iframe>
+          <BandcampPlayer />
         </div>
-        <div class="socials-wrapper">
+        <div v-if="!is768" class="socials-wrapper">
           <a href="https://www.instagram.com/whiletruemusic" target="_blank">
             <img src="../assets/socials/ig.png" />
           </a>
@@ -36,23 +45,21 @@
           </a>
         </div>
       </div>
-      <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/media">Media</router-link>
-        <router-link to="/shows">Shows</router-link>
-        <!-- <router-link to="/merch">Merch</router-link> -->
-        <a href="https://whiletruemusic.bandcamp.com/merch" target="_blank"
-          >Merch</a
-        >
-        <router-link to="/contact">Contact</router-link>
-        <router-link to="/about">About</router-link>
-      </nav>
+      <NavItems v-if="!is768" />
     </div>
   </div>
 </template>
 <style scoped>
 img {
   height: 115px;
+}
+
+.hamburger-items nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 32px;
+  transform: translateY(128px);
 }
 
 .head {
@@ -63,9 +70,39 @@ img {
   background-color: var(--header-background);
 }
 
+@media (max-width: 768px) {
+  .head {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 16px;
+    padding: 24px 16px 8px 16px;
+  }
+}
+
 .logo-wrapper {
   display: flex;
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-wrapper {
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-wrapper img {
+    max-height: 56px;
+  }
 }
 
 .stream {
@@ -73,10 +110,50 @@ img {
   padding-right: 24px;
 }
 
+@media (max-width: 1024px) {
+  .stream {
+    padding-left: 32px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stream {
+    padding-top: 24px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .links-wrapper {
+    width: 100%;
+  }
+}
+
 .top-wrapper {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .top-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .socials-wrapper {
+    flex: 1;
+  }
 }
 
 .socials-wrapper {
@@ -104,29 +181,9 @@ img {
   justify-content: space-between;
   align-items: flex-end;
 }
-
-nav a {
-  text-decoration: none;
-  color: var(--nav-link);
-  flex: 1;
-}
-
-nav a:hover {
-  color: var(--link-hover);
-  transition: ease-in-out all 0.2s;
-}
-
-nav {
-  font-size: 28px;
-  width: 100%;
-  height: 24px;
-  display: flex;
-  color: var(--primary-color);
-  align-items: center;
-  justify-content: center;
-}
-
-nav a.router-link-exact-active {
-  color: var(--link-active);
+</style>
+<style>
+.bm-burger-bars {
+  background-color: var(--primary-color);
 }
 </style>

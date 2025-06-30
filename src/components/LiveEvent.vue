@@ -20,18 +20,15 @@ const navigateToLink = (url) => window.open(url, '_blank');
       <span class="venue">{{ props.event.venue }}</span>
     </div>
     <div class="cta">
-      <div v-if="props.event.tickets">
-        <ButtonComponent
-          :success="true"
-          @click="navigateToLink(props.event.tickets.url)"
-          >Buy Tickets</ButtonComponent
-        >
-      </div>
-      <div>
-        <ButtonComponent @click="navigateToLink(props.event.url)"
-          >More Details</ButtonComponent
-        >
-      </div>
+      <ButtonComponent
+        v-if="props.event.tickets"
+        :success="true"
+        @click="navigateToLink(props.event.tickets.url)"
+        >Buy Tickets</ButtonComponent
+      >
+      <ButtonComponent @click="navigateToLink(props.event.url)"
+        >More Details</ButtonComponent
+      >
     </div>
   </div>
 </template>
@@ -44,12 +41,21 @@ const navigateToLink = (url) => window.open(url, '_blank');
   flex-direction: row;
   background-color: var(--card-background);
   border-radius: 4px;
-  width: 800px;
+  width: 680px;
 }
 
-.event-wrapper div {
-  flex: 1;
+@media (max-width: 768px) {
+  .event-wrapper {
+    width: 85%;
+  }
 }
+
+@media (max-width: 768px) {
+  .event-wrapper {
+    flex-direction: column;
+  }
+}
+
 .event-row {
   display: flex;
   justify-content: center;
@@ -59,19 +65,40 @@ const navigateToLink = (url) => window.open(url, '_blank');
   gap: 4px;
   align-items: center;
   height: 100%;
+  width: 128px;
 }
 .location {
+  flex: 1;
   font-size: 36px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .location {
+    padding-top: 16px;
+    font-size: 48px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .venue {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 769px) {
+  .venue {
+    font-size: 24px;
+  }
+}
 .event-title {
   font-weight: 600;
 }
 .calendar-wrapper {
-  max-width: 24px;
+  width: 24px;
   display: flex;
 }
 .venue {
@@ -80,13 +107,25 @@ const navigateToLink = (url) => window.open(url, '_blank');
 .cta {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
-  align-items: flex-end;
+  width: 128px;
+}
+@media (max-width: 768px) {
+  .cta {
+    padding-top: 24px;
+    flex-direction: row;
+    width: 100%;
+  }
+  .cta button {
+    max-width: 192px;
+    min-height: 48px;
+    font-size: 24px;
+  }
 }
 .cta div {
   display: flex;
   align-items: center;
-  width: 75%;
 }
 .cta button {
   width: 100%;

@@ -5,5 +5,14 @@ import BeholdWidget from '@behold/vue';
   <!-- <h1>Join Our Mailing List</h1>
   <br /> -->
   <h1>Feed</h1>
-  <BeholdWidget feed-id="S4oITuFmihmdgKwirUZ2" />
+  <div class="ig-container">
+    <BeholdWidget feed-id="S4oITuFmihmdgKwirUZ2" />
+  </div>
 </template>
+<style scoped>
+@media (max-width: 768px) {
+  .ig-container {
+    padding: 0 16px;
+  }
+}
+</style>
