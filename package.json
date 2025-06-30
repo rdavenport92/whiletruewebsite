@@ -8,6 +8,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": "20.x",
+    "npm": "^11.0.0"
+  },
   "dependencies": {
     "@behold/vue": "^0.1.7",
     "@heroicons/vue": "^2.2.0",
