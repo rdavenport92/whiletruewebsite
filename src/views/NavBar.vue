@@ -184,6 +184,6 @@ img {
 </style>
 <style>
 .bm-burger-bars {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 </style>
