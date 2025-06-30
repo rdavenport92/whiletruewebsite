@@ -1,0 +1,14 @@
+:root {
+    --primary-color: #e8e8e8;
+    --secondary-color: rgb(116, 140, 155);
+    --link: var(--primary-color);
+    /* --link: rgb(36, 51, 61); */
+    --nav-link: var(--primary-color);
+    --link-active: #c86b4a;
+    --link-hover: #cf5529;
+    --card-background: rgba(19, 27, 32, 0.925);
+    --header-background: rgba(0, 0, 0, 0.263);
+    --btn-hover: var(--secondary-color);
+    --btn-success: rgb(64, 121, 64);
+    --btn-border: 1px solid #ffffff7b;
+}

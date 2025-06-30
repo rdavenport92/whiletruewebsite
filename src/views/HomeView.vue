@@ -1,18 +1,9 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-};
+<script setup>
+import BeholdWidget from '@behold/vue';
 </script>
+<template>
+  <!-- <h1>Join Our Mailing List</h1>
+  <br /> -->
+  <h1>Feed</h1>
+  <BeholdWidget feed-id="S4oITuFmihmdgKwirUZ2" />
+</template>
