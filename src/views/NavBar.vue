@@ -1,7 +1,10 @@
 <template>
   <div class="head">
     <div class="logo-wrapper">
-      <img alt="Vue logo" src="../assets/logo.png" />
+      <img
+        alt="while(true) logo"
+        src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/logo.png"
+      />
     </div>
     <div class="links-wrapper">
       <div class="top-wrapper">
@@ -57,7 +60,6 @@ img {
   padding: 24px 0px 24px 24px;
   justify-content: space-between;
   align-items: flex-end;
-  /* margin-bottom: 32px; */
   background-color: var(--header-background);
 }
 

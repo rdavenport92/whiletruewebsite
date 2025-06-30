@@ -23,7 +23,6 @@ const loadVideos = async () => {
     if (result.data.items.length >= i + 1) {
       const link = result.data.items[i].link;
       const id = link.substring(link.indexOf('=') + 1);
-      console.log(link);
       urlResults.push(`https://youtube.com/embed/${id}?controls=0&autoplay=1`);
       // <iframe width="560" height="315" src="https://www.youtube.com/embed/fCSv8E8o-ZA?si=BQDgw9B2BxSRo25j" ></iframe>
     }

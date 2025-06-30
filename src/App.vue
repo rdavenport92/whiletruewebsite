@@ -3,8 +3,14 @@ import NavBar from './views/NavBar';
 </script>
 <template>
   <video autoplay loop muted>
-    <source src="./assets/wt_website_vid.mp4" type="video/webm" />
-    <source src="./assets/wt_website_vid.mp4" type="video/mp4" />
+    <source
+      src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/bg_vid.mp4"
+      type="video/webm"
+    />
+    <source
+      src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/bg_vid.mp4"
+      type="video/mp4"
+    />
   </video>
   <NavBar />
   <div class="app-body">
@@ -55,6 +61,8 @@ h1 {
   overflow: scroll;
   padding-top: 48px;
   padding-bottom: 32px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
 }
 video {
   z-index: -1000;
