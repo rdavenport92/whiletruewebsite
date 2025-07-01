@@ -10,18 +10,16 @@ const name = ref('');
 const email = ref('');
 const message = ref('');
 
-const submitForm = async (e) => {
-  console.log(e.preventDefault());
+const submitForm = async () => {
   if (!isSubmitting.value) {
     isSubmitting.value = true;
 
     try {
       await axios.post(`${process.env.VUE_APP_API_URI}/contact`, {
-        name,
-        email,
-        message,
+        name: name.value,
+        email: email.value,
+        message: message.value,
       });
-      // reset('contact');
       toast.success('Thank you for your message!', {
         autoClose: 5000,
         position: 'bottom-right',
