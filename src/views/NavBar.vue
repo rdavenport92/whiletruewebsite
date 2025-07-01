@@ -113,7 +113,7 @@ img:hover {
 
 @media (max-width: 576px) {
   .logo-wrapper img {
-    max-height: 56px;
+    max-height: 72px;
   }
 }
 
@@ -187,12 +187,12 @@ img:hover {
   .socials-wrapper {
     gap: 16px;
     justify-content: flex-end;
-    padding-right: 20px;
-    padding-top: 8px;
+    padding-right: 32px;
+    padding-top: 16px;
   }
   .socials-wrapper img {
-    max-width: 16px;
-    max-height: 16px;
+    max-width: 20px;
+    max-height: 20px;
   }
 }
 
