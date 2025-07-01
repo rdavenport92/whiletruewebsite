@@ -2,7 +2,7 @@
 import NavBar from './views/NavBar';
 </script>
 <template>
-  <video autoplay loop muted>
+  <video autoplay loop muted playsinline>
     <source
       src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/bg_vid.mp4"
       type="video/webm"
