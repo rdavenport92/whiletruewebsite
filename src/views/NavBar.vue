@@ -2,8 +2,10 @@
 import BandcampPlayer from '@/components/BandcampPlayer.vue';
 import NavItems from '@/components/NavItems.vue';
 import { useMediaQuery } from '@vueuse/core';
+import { useRouter } from 'vue-router';
 import { Slide } from 'vue3-burger-menu';
 
+const router = useRouter();
 const is768 = useMediaQuery('(max-width: 768px)');
 </script>
 <template>
@@ -17,6 +19,7 @@ const is768 = useMediaQuery('(max-width: 768px)');
       <img
         alt="while(true) logo"
         src="https://whiletrueassets.s3.ca-central-1.amazonaws.com/logo.png"
+        @click="router.push({ name: 'home' })"
       />
     </div>
     <div class="links-wrapper">
@@ -52,6 +55,12 @@ const is768 = useMediaQuery('(max-width: 768px)');
 <style scoped>
 img {
   height: 115px;
+}
+
+img:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: ease-in-out 0.2s;
 }
 
 .hamburger-items nav {

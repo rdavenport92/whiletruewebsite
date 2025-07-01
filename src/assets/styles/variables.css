@@ -1,8 +1,7 @@
 :root {
     --primary-color: #e8e8e8;
     --secondary-color: rgb(116, 140, 155);
-    --link: var(--primary-color);
-    /* --link: rgb(36, 51, 61); */
+    --link: var(--secondary-color);
     --nav-link: var(--primary-color);
     --link-active: #c86b4a;
     --link-hover: #cf5529;

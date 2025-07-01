@@ -1,5 +1,6 @@
 <script setup>
 import NavBar from './views/NavBar';
+import 'vue3-toastify/dist/index.css';
 </script>
 <template>
   <video autoplay loop muted playsinline>
@@ -44,6 +45,7 @@ body {
 a {
   /* font-weight: bold; */
   color: var(--link);
+  text-decoration: none;
 }
 a:hover {
   color: var(--link-hover);
@@ -59,7 +61,6 @@ h1 {
   background-color: var(--body-background);
   flex: 1;
   overflow: scroll;
-  padding-top: 48px;
   padding-bottom: 32px;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */

@@ -2,7 +2,6 @@
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import ButtonComponent from '@/components/ButtonComponent.vue';
-import 'vue3-toastify/dist/index.css';
 import { ref } from 'vue';
 
 const isSubmitting = ref(false);
