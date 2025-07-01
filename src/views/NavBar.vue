@@ -27,7 +27,7 @@ const is768 = useMediaQuery('(max-width: 768px)');
         <div class="stream">
           <BandcampPlayer />
         </div>
-        <div v-if="!is768" class="socials-wrapper">
+        <div class="socials-wrapper">
           <a href="https://www.instagram.com/whiletruemusic" target="_blank">
             <img src="../assets/socials/ig.png" />
           </a>
@@ -128,7 +128,7 @@ img:hover {
 
 @media (max-width: 768px) {
   .stream {
-    padding-top: 24px;
+    padding-top: 8px;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -159,12 +159,6 @@ img:hover {
   }
 }
 
-@media (max-width: 768px) {
-  .socials-wrapper {
-    flex: 1;
-  }
-}
-
 .socials-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -173,9 +167,30 @@ img:hover {
   gap: 24px;
 }
 
+@media (max-width: 768px) {
+  .socials-wrapper {
+    flex: 1;
+    justify-content: center;
+    padding-top: 16px;
+  }
+}
+
 .socials-wrapper img {
   max-width: 22px;
   max-height: 22px;
+}
+
+@media (max-width: 576px) {
+  .socials-wrapper {
+    gap: 16px;
+    justify-content: flex-end;
+    padding-right: 20px;
+    padding-top: 8px;
+  }
+  .socials-wrapper img {
+    max-width: 16px;
+    max-height: 16px;
+  }
 }
 
 .socials-wrapper img:hover {
