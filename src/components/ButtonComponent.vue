@@ -2,12 +2,16 @@
 import { defineEmits, defineProps } from 'vue';
 
 const emits = defineEmits(['click']);
-const props = defineProps(['success']);
+const props = defineProps(['success', 'disabled']);
+
+const clickBtn = () => (!props.disabled ? emits('click') : () => null);
 
 const backgroundStyle = props.success ? 'var(--btn-success)' : 'transparent';
 </script>
 <template>
-  <button @click="emits('click')"><slot></slot></button>
+  <button @click="clickBtn()" :class="{ disabled }">
+    <slot></slot>
+  </button>
 </template>
 <style scoped>
 button {
@@ -24,5 +28,15 @@ button:hover {
   cursor: pointer;
   background-color: var(--btn-hover);
   transition: ease-in-out all 0.2s;
+}
+
+.disabled {
+  background-color: var(--disabled-btn);
+  border: none;
+}
+
+.disabled:hover {
+  cursor: auto;
+  background-color: var(--disabled-btn);
 }
 </style>

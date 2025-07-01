@@ -1,66 +1,108 @@
 <script setup>
 import axios from 'axios';
-import { reset } from '@formkit/vue';
 import { toast } from 'vue3-toastify';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 import 'vue3-toastify/dist/index.css';
+import { ref } from 'vue';
 
-const submitForm = async (data) => {
-  try {
-    await axios.post(`${process.env.VUE_APP_API_URI}/contact`, data);
-    reset('contact');
-    toast.success('Thank you for your message!', {
-      autoClose: 5000,
-      position: 'bottom-right',
-    });
-  } catch (err) {
-    toast.error(
-      'Unable to submit message. Please manually send email to whiletruemusic@gmail.com instead.',
-      {
+const isSubmitting = ref(false);
+const name = ref('');
+const email = ref('');
+const message = ref('');
+
+const submitForm = async (e) => {
+  console.log(e.preventDefault());
+  if (!isSubmitting.value) {
+    isSubmitting.value = true;
+
+    try {
+      await axios.post(`${process.env.VUE_APP_API_URI}/contact`, {
+        name,
+        email,
+        message,
+      });
+      // reset('contact');
+      toast.success('Thank you for your message!', {
         autoClose: 5000,
         position: 'bottom-right',
-      }
-    );
+      });
+      name.value = '';
+      email.value = '';
+      message.value = '';
+    } catch (err) {
+      toast.error(
+        'Unable to submit message. Please manually send email to whiletruemusic@gmail.com instead.',
+        {
+          autoClose: 5000,
+          position: 'bottom-right',
+        }
+      );
+    } finally {
+      isSubmitting.value = false;
+    }
   }
 };
 </script>
 <template>
   <h1>Contact Us</h1>
   <div class="form-wrapper">
-    <FormKit type="form" id="contact" @submit="submitForm">
-      <FormKit
-        type="text"
-        name="name"
-        id="name"
-        label="Name"
-        validation="required"
-        placeholder="“Jon Doe”"
-      />
-      <FormKit
-        type="text"
-        name="email"
-        id="email"
-        label="Email Address"
-        validation="required|*email"
-        placeholder="youremail@something.com"
-      />
-      <FormKit
-        type="textarea"
-        name="message"
-        id="message"
-        label="Your Message"
-        validation="required"
-        placeholder="What do you have to say?"
-      />
-    </FormKit>
+    <form id="contact" @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          class="form-input"
+          type="text"
+          name="name"
+          v-model="name"
+          id="name"
+          placeholder="Jon Doe"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          class="form-input"
+          type="email"
+          name="email"
+          v-model="email"
+          id="email"
+          placeholder="youremail@something.com"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea
+          class="form-input"
+          name="message"
+          v-model="message"
+          id="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
+      </div>
+      <div class="btn-wrapper">
+        <ButtonComponent :success="true" type="submit" :disabled="isSubmitting"
+          >Submit</ButtonComponent
+        >
+      </div>
+    </form>
   </div>
 </template>
 <style scoped>
 .form-wrapper {
   height: 100%;
-  margin-left: 0;
-  margin-right: auto;
   display: flex;
   justify-content: center;
+}
+
+.form-group {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+  width: 440px;
 }
 
 button {
@@ -68,29 +110,37 @@ button {
   min-height: 56px;
   font-size: 24px;
 }
-</style>
-<style>
-.formkit-label {
-  font-family: 'Bebas Neue', sans-serif !important;
+.btn-wrapper {
+  padding-top: 16px;
 }
-
-.formkit-input {
-  font-family: 'Bebas Neue', sans-serif !important;
+.form-input {
+  height: 32px;
+  font-family: inherit;
+  font-size: 18px;
+  width: 312px;
+  width: 100%;
 }
-
-.formkit-inner {
-  background-color: var(--primary-color) !important;
-  width: 480px;
+#label {
+  font-size: 18px;
 }
-
-.formkit-wrapper button {
-  background-color: var(--btn-success) !important;
-  font-family: 'Bebas Neue', sans-serif !important;
+textarea {
+  min-height: 128px;
 }
-
 @media (max-width: 576px) {
-  .formkit-inner {
-    width: 424px;
+  .form-wrapper {
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+  }
+  form {
+    border: 1px solid blue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-group {
+    width: 85%;
   }
 }
 </style>
