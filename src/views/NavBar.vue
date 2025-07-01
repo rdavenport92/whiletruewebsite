@@ -11,7 +11,7 @@ const is768 = useMediaQuery('(max-width: 768px)');
 <template>
   <div class="head">
     <div class="logo-wrapper">
-      <Slide v-if="is768" :closeOnNavigation="true">
+      <Slide v-if="is768" :closeOnNavigation="true" right>
         <div class="hamburger-items">
           <NavItems />
         </div>
@@ -106,7 +106,7 @@ img:hover {
 @media (max-width: 576px) {
   .logo-wrapper {
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 
@@ -174,6 +174,7 @@ img:hover {
     flex: 1;
     justify-content: center;
     padding-top: 16px;
+    padding-right: 0;
   }
 }
 
@@ -184,9 +185,8 @@ img:hover {
 
 @media (max-width: 576px) {
   .socials-wrapper {
-    gap: 20px;
-    justify-content: flex-end;
-    padding-right: 4px;
+    gap: 24px;
+    justify-content: flex-start;
     padding-top: 16px;
   }
   .socials-wrapper img {
@@ -211,5 +211,10 @@ img:hover {
 <style>
 .bm-burger-bars {
   background-color: var(--primary-color) !important;
+}
+
+.bm-burger-button {
+  right: 36px;
+  left: auto;
 }
 </style>
