@@ -214,7 +214,7 @@ img:hover {
 }
 
 .bm-burger-button {
-  right: 36px;
-  left: auto;
+  right: 36px !important;
+  left: auto !important;
 }
 </style>
