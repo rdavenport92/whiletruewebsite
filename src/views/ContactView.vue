@@ -129,11 +129,9 @@ textarea {
 @media (max-width: 576px) {
   .form-wrapper {
     width: 100%;
-    border: 1px solid red;
     display: flex;
   }
   form {
-    border: 1px solid blue;
     width: 100%;
     display: flex;
     flex-direction: column;
