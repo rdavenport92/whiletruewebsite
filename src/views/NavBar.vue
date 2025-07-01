@@ -217,4 +217,11 @@ img:hover {
   right: 36px !important;
   left: auto !important;
 }
+
+.hamburger-items nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  padding-right: 16px !important;
+}
 </style>
