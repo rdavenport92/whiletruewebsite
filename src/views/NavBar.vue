@@ -186,7 +186,6 @@ img:hover {
   .socials-wrapper {
     gap: 20px;
     justify-content: flex-end;
-    /* padding-right: 32px; */
     padding-right: 4px;
     padding-top: 16px;
   }
