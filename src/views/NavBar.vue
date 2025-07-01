@@ -11,7 +11,7 @@ const is768 = useMediaQuery('(max-width: 768px)');
 <template>
   <div class="head">
     <div class="logo-wrapper">
-      <Slide v-if="is768" :closeOnNavigation="true" right>
+      <Slide v-if="is768" :closeOnNavigation="true" right width="192">
         <div class="hamburger-items">
           <NavItems />
         </div>
