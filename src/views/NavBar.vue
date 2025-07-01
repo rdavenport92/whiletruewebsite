@@ -34,7 +34,10 @@ const is768 = useMediaQuery('(max-width: 768px)');
           <a href="https://www.facebook.com/whiletruemusic" target="_blank">
             <img src="../assets/socials/fb.png" />
           </a>
-          <a href="https://www.youtube.com/whiletruemusic_" target="_blank">
+          <a
+            href="https://www.youtube.com/channel/UC9lrz0HXUKUcnEgg4-hctHQ"
+            target="_blank"
+          >
             <img src="../assets/socials/yt.png" />
           </a>
           <a
