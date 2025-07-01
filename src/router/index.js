@@ -36,6 +36,10 @@ const routes = [
     name: 'contact',
     component: () => import('../views/ContactView.vue'),
   },
+  {
+    path: '/:catchall(.*)',
+    redirect: '/',
+  },
 ];
 
 const router = createRouter({
