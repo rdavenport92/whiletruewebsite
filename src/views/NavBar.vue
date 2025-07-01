@@ -107,7 +107,6 @@ img:hover {
   .logo-wrapper {
     width: 100%;
     justify-content: flex-end;
-    padding-right: 24px;
   }
 }
 
@@ -185,9 +184,10 @@ img:hover {
 
 @media (max-width: 576px) {
   .socials-wrapper {
-    gap: 16px;
+    gap: 20px;
     justify-content: flex-end;
-    padding-right: 32px;
+    /* padding-right: 32px; */
+    padding-right: 4px;
     padding-top: 16px;
   }
   .socials-wrapper img {
