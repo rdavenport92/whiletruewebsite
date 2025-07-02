@@ -197,6 +197,7 @@ img:hover {
 
 .socials-wrapper img:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .links-wrapper {
