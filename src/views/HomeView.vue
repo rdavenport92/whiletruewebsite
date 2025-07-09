@@ -1,9 +1,11 @@
 <script setup>
 import BeholdWidget from '@behold/vue';
+import MailingListSignup from '../components/MailingListSignup.vue';
 </script>
 <template>
-  <!-- <h1>Join Our Mailing List</h1>
-  <br /> -->
+  <h1>Join Our Mailing List</h1>
+  <MailingListSignup />
+  <br />
   <h1>Feed</h1>
   <div class="ig-container">
     <BeholdWidget feed-id="S4oITuFmihmdgKwirUZ2" />
