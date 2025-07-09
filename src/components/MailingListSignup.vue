@@ -149,6 +149,14 @@ form {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  width: 600px;
+  width: 540px;
+}
+@media (max-width: 576px) {
+  .name-group {
+    padding-right: 8px;
+  }
+  form {
+    margin: 0 16px;
+  }
 }
 </style>
