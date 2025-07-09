@@ -97,13 +97,30 @@ const submitForm = async () => {
         </div>
       </div>
     </form>
+    <p>
+      By pressing "Sign Up", you are consenting to subscribe to our newsletter
+      per Beehiiv's
+      <a
+        href="https://www.beehiiv.com/tou?_gl=1*qtiuh*_gcl_au*ODg1MDQxMDYwLjE3NTIwMDQzNDcuMTg0NTEwMjI0NC4xNzUyMDc3ODM4LjE3NTIwNzc4Mzg.*_ga*MTM0NTc1NTM4My4xNzUyMDA0MzQ3*_ga_E6Y4WLQ2EC*czE3NTIwNzUzNjEkbzIkZzEkdDE3NTIwODEwNTMkajYkbDAkaDM0MzMxNTEzNQ.."
+        >Terms of Use</a
+      >
+      &
+      <a
+        href="https://www.beehiiv.com/privacy?_gl=1*qtiuh*_gcl_au*ODg1MDQxMDYwLjE3NTIwMDQzNDcuMTg0NTEwMjI0NC4xNzUyMDc3ODM4LjE3NTIwNzc4Mzg.*_ga*MTM0NTc1NTM4My4xNzUyMDA0MzQ3*_ga_E6Y4WLQ2EC*czE3NTIwNzUzNjEkbzIkZzEkdDE3NTIwODEwNTMkajYkbDAkaDM0MzMxNTEzNQ.."
+        >Privacy Policy</a
+      >
+    </p>
   </div>
 </template>
 <style scoped>
+p {
+  font-size: 16px;
+}
 .form-wrapper {
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .name-group {
   display: flex;
@@ -149,7 +166,15 @@ form {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  width: 540px;
+  width: 600px;
+}
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+  }
+  p {
+    margin: 16px;
+  }
 }
 @media (max-width: 576px) {
   .name-group {
